@@ -1,16 +1,13 @@
-// Function for Movie Mode
+const lightbtn = document.getElementById("light-btn");
+
 async function activateLights() {
-  const btn = document.getElementById("light-btn");
-  btn.innerText = "Setting...";
-
-  await fetch("/api/trigger-webhook", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ scene: "movie-mode" }),
-  });
-
-  btn.innerText = "Activate";
+  console.log("Toggling Lamp...");
+  // Use the relative path to your Vercel API
+  await fetch("/api/trigger-webhook", { method: "POST" });
 }
+
+// Ensure there are no () after activateLights
+lightbtn.addEventListener("click", activateLights);
 
 // Function for Color Hex
 async function setColor(hexValue) {
@@ -21,9 +18,6 @@ async function setColor(hexValue) {
     body: JSON.stringify({ hex: hexValue }),
   });
 }
-
-// Event Listeners
-document.getElementById("light-btn").addEventListener("click", activateLights);
 
 document.getElementById("color-picker").addEventListener("change", (e) => {
   setColor(e.target.value);
