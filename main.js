@@ -12,4 +12,4 @@ async function activateLights() {
 
 
 const lightbtn = document.getElementById("light-btn");
-lightbtn.addEventListener("click", activateLights())
+lightbtn.addEventListener("click", activateLights)
