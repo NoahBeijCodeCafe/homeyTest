@@ -1,15 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>homeytest</title>
-    <script type="module" src="main.js"></script>
-  </head>
-  <body>
-      <h1>Turn on my light!</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homey Control</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <main class="dashboard">
+            <header>
+                <h1>Smart Home</h1>
+                <p>Living Room Lights</p>
+            </header>
 
-      <button id="light-btn">Toggle Light</button>
-  </body>
+            <section class="controls">
+                <div class="card">
+                    <div class="icon">🎬</div>
+                    <div class="card-info">
+                        <h3>Movie Mode</h3>
+                        <p>Dim lights & close blinds</p>
+                    </div>
+                    <button id="light-btn" class="action-btn">Activate</button>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🌈</div>
+                    <div class="card-info">
+                        <h3>Light Color</h3>
+                        <p>Set custom hex color</p>
+                    </div>
+                    <input type="color" id="color-picker" value="#ffffff">
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+</body>
 </html>
