@@ -8,3 +8,6 @@ async function activateLights() {
 
   console.log("Request sent to our secure backend!");
 }
+
+
+activateLights()

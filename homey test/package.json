@@ -9,10 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^7.2.4"
-  },
-  "dependencies": {
-    "dotenv": "^17.2.3",
-    "vercel": "^50.1.5"
+    "vite": "^7.2.4",
+    "vercel": "^50.1.5",
+    "dotenv": "^17.2.3"
   }
 }
