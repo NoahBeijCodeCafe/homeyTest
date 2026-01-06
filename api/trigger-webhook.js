@@ -1,18 +1,19 @@
+// Vercel uses standard Node.js request/response objects
 export default async function handler(request, response) {
+  // 1. Get the secret CloudID from Vercel's environment variables
   const cloudId = process.env.HOMEY_CLOUD_ID;
 
-  // Use the event name exactly as it appears in your Homey Flow
+  // 2. Build the real URL (hidden from the user)
   const homeyUrl = `https://webhook.homey.app/${cloudId}/lampglu`;
 
   try {
-    // A simple fetch() defaults to GET, which Homey prefers
-    const homeyResponse = await fetch(homeyUrl);
+    const homeyResponse = await fetch(homeyUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ source: "Vite-App", ...request.body }),
+    });
 
-    if (homeyResponse.ok) {
-      return response.status(200).json({ success: true });
-    } else {
-      return response.status(500).json({ error: "Homey rejected the request" });
-    }
+    return response.status(200).json({ success: true });
   } catch (error) {
     return response.status(500).json({ error: error.message });
   }
